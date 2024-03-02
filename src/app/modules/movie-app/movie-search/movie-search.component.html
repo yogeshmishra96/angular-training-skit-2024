@@ -1,0 +1,223 @@
+<div class=" center">
+    <div class="movie-container">
+        <input type="text" [(ngModel)]="movieName">
+        <button (click)="searchMovie()"> Search Movie </button>
+        <p>Your username is: {{ username }}</p>
+        <div *ngIf="movieDetails">
+            <h2>{{ movieDetails.Title }} ({{ movieDetails.Year }})</h2>
+            <img src="{{ movieDetails.Poster }}" alt="{{ movieDetails.Title }} Poster">
+
+            <table class="table">
+                <tr>
+                    <td><strong>Rated:</strong></td>
+                    <td>{{ movieDetails.Rated }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Released:</strong></td>
+                    <td>{{ movieDetails.Released }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Runtime:</strong></td>
+                    <td>{{ movieDetails.Runtime | minutesToHours }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Genre:</strong></td>
+                    <td>{{ movieDetails.Genre }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Director:</strong></td>
+                    <td>{{ movieDetails.Director }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Writer:</strong></td>
+                    <td>{{ movieDetails.Writer }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Actors:</strong></td>
+                    <td>{{ movieDetails.Actors }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Language:</strong></td>
+                    <td>{{ movieDetails.Language }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Country:</strong></td>
+                    <td>{{ movieDetails.Country }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Awards:</strong></td>
+                    <td>{{ movieDetails.Awards }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Box Office:</strong></td>
+                    <td>{{ movieDetails.BoxOffice }}</td>
+                </tr>
+                <tr>
+                    <td><strong>IMDB Rating:</strong></td>
+                    <td>{{ movieDetails.imdbRating }}</td>
+                </tr>
+                <tr>
+                    <td><strong>IMDB Votes:</strong></td>
+                    <td>{{ movieDetails.imdbVotes }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Type:</strong></td>
+                    <td>{{ movieDetails.Type }}</td>
+                </tr>
+                <tr>
+                    <td><strong>DVD Release:</strong></td>
+                    <td>{{ movieDetails.DVD }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Production:</strong></td>
+                    <td>{{ movieDetails.Production }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Website:</strong></td>
+                    <td>{{ movieDetails.Website }}</td>
+                </tr>
+            </table>
+
+            <p><strong>Plot:</strong> {{ movieDetails.Plot }}</p>
+
+            <h3>Ratings</h3>
+            <ul>
+                <li *ngFor="let rating of movieDetails.Ratings">
+                    {{ rating.Source }}: {{ rating.Value }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+// directives
+
+<!-- ngIf Directive -->
+<div *ngIf="showElement">This element will be shown if showElement is true.</div>
+
+<!-- ngFor Directive -->
+<ul>
+    <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<!-- ngSwitch Directive -->
+<div [ngSwitch]="value">
+    <div *ngSwitchCase="'first'">First case content</div>
+    <div *ngSwitchCase="'second'">Second case content</div>
+    <div *ngSwitchDefault>Default content</div>
+</div>
+
+<!-- ngClass Directive -->
+<div [ngClass]="{ 'active': isActive, 'disabled': isDisabled }">Content</div>
+
+<!-- ngStyle Directive -->
+<div [ngStyle]="{ 'color': textColor, 'font-size.px': fontSize }">Content</div>
+
+<!-- ngModel Directive -->
+<input type="text" [(ngModel)]="name">
+
+<!-- // events  -->
+
+<br />
+<br /><br /><br /><br />
+
+
+<!-- Click Event -->
+<button (click)="handleClick()">Click Me</button>
+
+<!-- Mouse Events -->
+<div (mouseover)="handleMouseOver()" (mouseout)="handleMouseOut()" class="mouse-over">Mouse Events</div>
+<br /><br />
+<!-- Keyboard Events -->
+<input type="text" (keydown)="handleKeyDown($event)" (keyup)="handleKeyUp($event)">
+<br /><br />
+<!-- Focus Events -->
+<input type="text" (focus)="handleFocus()" (blur)="handleBlur()">
+<br /><br />
+<!-- Change Event -->
+<select (change)="handleChange($event)">
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+</select>
+<br /><br />
+<!-- Submit Event -->
+<form (ngSubmit)="handleSubmit()">
+    <input type="text" name="username">
+    <button type="submit">Submit</button>
+</form>
+
+<br /><br /><br /><br /><br /><br />
+
+
+<div>
+    <!-- Uppercase Pipe -->
+    <p>Uppercase: {{ 'hello world' | uppercase }}</p>
+
+    <!-- Lowercase Pipe -->
+    <p>Lowercase: {{ 'HELLO WORLD' | lowercase }}</p>
+
+    <!-- Titlecase Pipe -->
+    <p>Titlecase: {{ 'hello world' | titlecase }}</p>
+
+    <!-- Decimal Pipe -->
+    <p>Decimal: {{ 3.14159 | number:'1.2-3' }}</p>
+
+    <!-- Currency Pipe -->
+    <p>Currency: {{ 100 | currency:'INR':'symbol':'4.2-2' }}</p>
+
+    <!-- Percent Pipe -->
+    <p>Percent: {{ 0.5 | percent }}</p>
+
+    <!-- Date Pipe -->
+    <p>Date: {{ today | date:'medium' }}</p>
+
+    <!-- Slice Pipe -->
+    <p>Slice: {{ 'abcdefghij' | slice:2:5 }}</p>
+
+    <!-- JSON Pipe -->
+    <p>JSON: {{ object | json }}</p>
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br />
+
+<div appHighlight>
+    Hover me to highlight
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br />
+
+<!-- app.component.html -->
+
+<div class="container">
+    <h2>Angular Form Example</h2>
+    <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" formControlName="name" />
+            <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched" class="text-danger">
+                Name is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" formControlName="email" />
+            <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched" class="text-danger">
+                Please enter a valid email address.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" formControlName="password" />
+            <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched" class="text-danger">
+                Password must be at least 6 characters long.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    </form>
+</div>

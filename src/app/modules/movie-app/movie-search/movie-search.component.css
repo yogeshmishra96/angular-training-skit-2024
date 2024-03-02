@@ -1,0 +1,28 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+}
+
+.movie-container {
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+
+.active {
+    color: green; 
+}
+
+.in-active {
+
+    color: yellow; 
+}
+
+.mouse-over {
+    background-color: green;
+}
